@@ -1,0 +1,103 @@
+body {
+  background-color: #fafafa;
+}
+.main_loginpage {
+  display: flex;
+  margin: 20px;
+}
+.left_mob_image {
+  width: 350px;
+}
+.logo_loginpage {
+  width: 120px;
+  margin: 20px;
+}
+.rightcomponent_loginpage {
+  width: 320px;
+  height: 380px;
+  border: 1px solid grey;
+  margin-top: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.inp {
+  width: 250px;
+  height: 30px;
+  margin: 5px 10px 5px 10px;
+  border: 1px solid grey;
+  background-color: #fafafa;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.btn {
+  width: 265px;
+  height: 40px;
+  margin-top: 10px;
+  font-weight: bold;
+  border: 1px solid #0385f6;
+  border-radius: 5px;
+  background-color: #0385f6;
+  color: white;
+}
+.or_container{
+    display: flex;
+    justify-content: center;
+}
+.or {
+  margin: 20px 10px;
+  font-weight: bold;
+  color: #8e8e8e;
+}
+.or_divider{
+    margin: 30px 2px;
+    width: 90px;
+    height: 0px;
+    border: 1px solid grey; 
+}
+.login_fb{
+  display: flex;
+  margin: 5px;
+  color: #3c3d92;
+  justify-content: center;
+  font-size: medium;
+}
+
+.fb_logo{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.forgot_pass{
+  font-size: small;
+  margin-top: 20px;
+  color: #3c3d92;
+}
+.signin_login_opt{
+  display: flex;
+  width: 320px;
+  height: 50px;
+  margin-top: 40px;
+  border: 1px solid grey;
+  justify-content: center;
+}
+.signin_login_ac{
+  margin: auto;
+}
+.sign_ac{
+  color: #0385f6;
+}
+.downloadapp{
+  margin: auto;
+}
+.downloadapp_getapp{
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.downloadapp_store{
+  display: flex;
+  margin: 8px 3px;
+  width: 150px;
+
+}

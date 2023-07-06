@@ -1,0 +1,100 @@
+body {
+    background-color: #fafafa;
+  }
+  .main_loginpage {
+    display: flex;
+    margin: 20px;
+  }
+  .logo_loginpage {
+    width: 120px;
+    margin: 20px;
+  }
+  .photos_videos_signup{
+    font-weight: bold;
+    color: #8e8e8e;
+  }
+  .rightcomponent_loginpage {
+    width: 320px;
+    height: 555px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    text-align: center;
+    background-color: white;
+  }
+  
+  .inp {
+    width: 250px;
+    height: 25px;
+    margin: 5px 10px 5px 10px;
+    border: 1px solid grey;
+    background-color: #fafafa;
+    padding-left: 10px;
+    border-radius: 5px;
+  }
+  .btn {
+    width: 265px;
+    height: 40px;
+    margin-top: 10px;
+    font-weight: bold;
+    border: 1px solid #0385f6;
+    border-radius: 5px;
+    background-color: #0385f6;
+    color: white;
+  }
+  .or_container{
+      display: flex;
+      justify-content: center;
+  }
+  .or {
+    margin: 15px 10px;
+    font-weight: bold;
+    color: #8e8e8e;
+  }
+  .or_divider{
+      margin: 25px 2px;
+      width: 90px;
+      height: 0px;
+      border: 1px solid grey; 
+  }
+  .login_fb{
+    display: flex;
+    margin: 5px;
+    color: #3c3d92;
+    justify-content: center;
+    font-size: medium;
+  }
+  
+  .fb_logo{
+    width: 20px;
+    height: 20px;
+    background-color: #fafafa;
+    color: #3c3d92;
+    margin-right: 10px;
+    margin-top: 2px;
+  }
+  .forgot_pass{
+    font-size: small;
+    margin-top: 20px;
+    color: #3c3d92;
+  }
+  
+  .learnmore{
+    font-size: smaller;
+    font-weight: inherit ;
+    margin-top: 10px;
+  }
+  .privacy_dt{
+    font-size: smaller ;
+    margin-top: 10px;
+    font-weight: inherit ;
+  }
+  .btn_sinup{
+    width: 265px;
+    height: 35px;
+    margin-top: 3px;
+    font-weight: bold;
+    border: 1px solid #0385f6;
+    border-radius: 5px;
+    background-color: #0385f6;
+    color: white;
+  }
