@@ -1,25 +1,51 @@
 import { Grid } from "@mui/material";
-import React , {Component} from "react"
+import React, { useState }  from "react"
+import axios from "axios"
 import './SignupPage.css'   
 import ig_logo from '../../images/login.png'
 import fb from '../../images/fb.png'
+import { useNavigate } from "react-router-dom"
 
 
-class SignupPage extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            isSignup: true
+function SignupPage() {
+    const history=useNavigate();
+
+    const [email,setEmail]=useState('')
+    const [name,setName]=useState('')
+    const [username,setUsername]=useState('')
+    const [password,setPassword]=useState('')
+
+    async function submit(e){
+        e.preventDefault();
+
+        try{
+
+            await axios.post("http://localhost:8001/signup",{
+                email,name,username,password
+            })
+            .then(res=>{
+                if(res.data==="email already exists"){
+                    alert("User with this email already exists")
+                }
+                else if(res.data==="sign up successful"){
+                    alert("Sign up successful")
+                }
+            })
+            .catch(e=>{
+                alert("wrong details")
+                console.log(e);
+            })
+
         }
-    }
-    changeLogin = () =>{
-        if(this.state.isSignup){
-            this.setState({isSignup: false})
-        }else{
-            this.setState({isSignup: true})
+        catch(e){
+            console.log(e);
+
         }
+
     }
-    render(){
+
+
+    
         return(
             <div>
                 <Grid container>
@@ -38,13 +64,15 @@ class SignupPage extends Component{
                                     <div className="or_divider"></div>
                                 </div>
                                 <div className="inpgrp_signin">
-                                    <input type="text" className="inp" placeholder="Phone number or email address"/>
-                                    <input type="text" className="inp" placeholder="Full Name"/>
-                                    <input type="text" className="inp" placeholder="Username"/>
-                                    <input type="password" className="inp" placeholder="Password"/>
+                                <form action="POST" className="inpgrp_signup">
+                                    <input type="text" className="inp" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email address"/>
+                                    <input type="text" className="inp" onChange={(e) => { setName(e.target.value) }} placeholder="Full Name"/>
+                                    <input type="text" className="inp" onChange={(e) => { setUsername(e.target.value) }} placeholder="Username"/>
+                                    <input type="password" className="inp" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password"/>
                                     <p className="learnmore">People who use our service may have uploaded your contact information to Instagram. Learn more</p>
                                     <p className="privacy_dt">By signing up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
-                                    <button className="btn_sinup">Sign Up</button>
+                                    <button className="btn_sinup" onClick={submit}>Sign Up</button>
+                                </form>
                                 </div>
                                 
                                 
@@ -59,7 +87,7 @@ class SignupPage extends Component{
                 </Grid>
             </div>
         )
-    }
 }
+
 
 export default SignupPage;

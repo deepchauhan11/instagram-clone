@@ -1,5 +1,7 @@
 import { Grid } from "@mui/material";
-import React , {Component} from "react"
+import React , { useState } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
 import './LoginPage.css'
 import ig_login_img from '../../images/login.svg'
 import ig_logo from '../../images/login.png'
@@ -8,21 +10,42 @@ import appstore from '../../images/app.png'
 import playstore from '../../images/play.png'
 
 
-class LoginPage extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            isLogin: true
+function LoginPage(){
+    const history=useNavigate();
+
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+
+    async function submit(e){
+        e.preventDefault();
+
+        try{
+
+            await axios.post("http://localhost:8001/login",{
+                email,password
+            })
+            .then(res=>{
+                if(res.data!=="invalid"){
+                    alert("valid")
+                }
+                else if(res.data==="invalid"){
+                    alert("User have not sign up")
+                }
+            })
+            .catch(e=>{
+                alert("wrong details")
+                console.log(e);
+            })
+
         }
-    }
-    changeLogin = () =>{
-        if(this.state.isLogin){
-            this.setState({isLogin: false})
-        }else{
-            this.setState({isLogin: true})
+        catch(e){
+            console.log(e);
+
         }
+
     }
-    render(){
+
+
         return(
             <div>
                 <Grid container>
@@ -37,9 +60,9 @@ class LoginPage extends Component{
                             <div className="rightcomponent_loginpage">
                                 <img src={ig_logo} alt="Instagram logo" className="logo_loginpage" />
                                 <div className="inpgrp_signin">
-                                    <input type="text" className="inp" placeholder="Phone number, email or username"/>
-                                    <input type="password" className="inp" placeholder="Password"/>
-                                    <button className="btn">Sign In</button>
+                                    <input type="text" className="inp" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email Address"/>
+                                    <input type="password" className="inp" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password"/>
+                                    <button className="btn" onClick={submit}>Sign In</button>
                                 </div>
                                 <div className="or_container">
                                     <div className="or_divider"></div>
@@ -52,15 +75,9 @@ class LoginPage extends Component{
                                 </div>
                                 <div className="forgot_pass">Forgot your Password?</div>
                                 <div className="signin_login_opt">
-                                    {
-                                        this.state.isLogin ? 
-                                        <div className="signin_login_ac">
+                                   <div className="signin_login_ac">
                                             Don't have an account? <span className="sign_ac">Sign up</span> 
-                                        </div> :
-                                        <div className="signin_login_ac">
-                                            Have an account ? <span className="sign_ac">Sign In</span>
                                         </div>
-                                    }
                                 </div>
                             <div className="downloadapp">
                                 <div className="downloadapp_getapp">Get the app.</div>
@@ -80,6 +97,6 @@ class LoginPage extends Component{
             </div>
         )
     }
-}
+
 
 export default LoginPage;
